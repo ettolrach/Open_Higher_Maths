@@ -1,3 +1,6 @@
+## IGNORE PDF FILES, PDF FILES SHOULD ONLY EXIST IN RELEASES.
+*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
