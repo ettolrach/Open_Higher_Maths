@@ -173,13 +173,43 @@ To find the point in the middle of a line, use
 	\end{align*}
 	
 	\item
+	A circle has centre point $(6,10)$. Two points $A(5,5)$ and $B$ are drawn on its circumference, these are connecting by a diameter (see figure \ref{fig:MidPointQ2}). Find the coordinates of B.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/MidPointQ2.png}
-		\caption{Not to scale.}
+		\begin{tikzpicture}
+		[
+			scale=0.5,
+			% Make a style for a black coordinate.
+			cmark/.style={label={[anchor=center, color=black]:\pgfuseplotmark{#1}}},
+			% And one for a blue coordinate.
+			bmark/.style={label={[anchor=center, color=blue]:\pgfuseplotmark{#1}}}
+		]
+			\draw (6,10) circle [radius=sqrt(26)];
+			\coordinate
+			[
+				label=below:{$A(5,5)$},
+				black,
+				cmark=*,
+			] (a) at (5,5);
+			\coordinate
+			[
+				label=right:{$C(6,10)$},
+				black,
+				cmark=*,
+			] (c) at (6,10);
+			\coordinate
+			[
+				label=above:{$B$},
+				blue,
+				bmark=*,
+			] (b) at (7,15);
+			
+			% Draw diameter.
+			\draw (a) -- (c) -- (b);
+		\end{tikzpicture}
+		\caption{Circle mentioned in example 2.}
 		\label{fig:MidPointQ2}
 	\end{figure}
-	A circle has centre point $\left(17, 12\right)$. Two points $A(9, -2)$ and $B$ are drawn on its circumference, these are connecting by a diameter (see figure \ref{fig:MidPointQ2}). Find the coordinates of B.
 	\begin{align*}
 		\text{mid point} &= \left(\frac{x_1 + x_2}{2},\frac{y_1 + y_2}{2}\right)\\
 		\left(17, 12\right) &= \left(\frac{9+x}{2},\frac{-2 + y_2}{2}\right)
@@ -201,41 +231,41 @@ Points that are collinear lie on a straight line.
 	\centering
 	\begin{subfigure}[b]{0.4\linewidth}
 		\begin{tikzpicture}% coordinates
-		\begin{axis}
-		[
-			axis equal,
-			axis line style={draw=none},
-		]
-		\pgfplotsset{ticks=none} % Get rid of numbers and ticks.
-		\addplot
-		[
-			color=black,
-			mark=*,
-		] coordinates
-		{
-			(3,0)(6,1)(9,2)
-		};
+			\begin{axis}
+			[
+				axis equal,
+				axis line style={draw=none},
+			]
+			\pgfplotsset{ticks=none} % Get rid of numbers and ticks.
+			\addplot
+			[
+				color=black,
+				mark=*,
+			] coordinates
+			{
+				(3,0)(6,1)(9,2)
+			};
 		\end{axis}
 		\end{tikzpicture}
 		\caption{Collinear.}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.4\linewidth}
 		\begin{tikzpicture}% coordinates
-		\begin{axis}
-		[
-			axis equal,
-			axis line style={draw=none},
-		]
-		\pgfplotsset{ticks=none} % Get rid of numbers and ticks.
-		\addplot
-		[
-			color=black,
-			mark=*,
-		] coordinates
-		{
-			(1,0)(2,1)(7,2)
-		};
-		\end{axis}
+			\begin{axis}
+			[
+				axis equal,
+				axis line style={draw=none},
+			]
+			\pgfplotsset{ticks=none} % Get rid of numbers and ticks.
+			\addplot
+			[
+				color=black,
+				mark=*,
+			] coordinates
+			{
+				(1,0)(2,1)(7,2)
+			};
+			\end{axis}
 		\end{tikzpicture}
 		\caption{Not collinear.}
 	\end{subfigure}
@@ -373,9 +403,9 @@ The triangle $ABC$ has vertices $A(3,-5)$, $B(4,3)$, and $C(-7,2)$. Find the alt
 	\centering
 	\begin{tikzpicture}[scale=2]
 		% Draw triangle.
-		\coordinate[label=left:{$A$}] (a) at (0cm,0cm);		\coordinate[label=above:{$B$}] (b) at (4cm,0cm);		\coordinate[] (p) at (2cm,1cm);
+		\coordinate[label=above:{$A$}] (a) at (0cm,0cm);		\coordinate[label=above:{$B$}] (b) at (4cm,0cm);		\coordinate[] (p) at (2cm,0.75cm);
 		\coordinate[] (q) at (2cm,0cm);
-		\coordinate[] (r) at (2cm,-1cm);
+		\coordinate[] (r) at (2cm,-0.75cm);
 		\draw (a) -- (b);
 		\draw[color=blue] (p) -- (r);
 		
@@ -396,7 +426,7 @@ To find the PB of a line $AB$:
 \end{enumerate}
 
 \subsection{Example}
-Two points are $A(-2,1)$ and $B4,7)$ are connected by a line. Find the equation of the perpendicular bisector.
+Two points are $A(-2,1)$ and $B(4,7)$ are connected by a line. Find the equation of the perpendicular bisector.
 
 \begin{align*}
 	\text{mid point} &= \left(\frac{-2+4}{2},\frac{1+7}{2}\right) & m_{AB} &= \frac{7-1}{4-(-2)} & m_\perp&=-1\\
@@ -409,6 +439,39 @@ Two points are $A(-2,1)$ and $B4,7)$ are connected by a line. Find the equation 
 	y&=-x+5
 \end{align*}
 
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	[
+		scale=0.5,
+		% Make a style for a black coordinate.
+		cmark/.style={label={[anchor=center, color=black]:\pgfuseplotmark{#1}}},
+		% And one for a blue coordinate.
+		bmark/.style={label={[anchor=center, color=blue]:\pgfuseplotmark{#1}}}
+	]
+		\coordinate
+		[
+			label=left:{$A(-2,1)$},
+			black,
+			cmark=*,
+			] (a) at (-2,1);
+		\coordinate
+		[
+			label=right:{$B(4,7)$},
+			black,
+			cmark=*,
+		] (b) at (4,7);
+		\coordinate (p) at (0,5);
+		\coordinate [label=right:{$y=-x+5$}] (q) at (2,3);
+		
+		% Draw line
+		\draw (a) -- (b);
+		\draw[blue] (p) -- (q);
+	\end{tikzpicture}
+	\caption{Perpendicular bisector in blue. Note that this is only to show what's happening, it's not required to sketch this in an exam unless specifically asked for.}
+	\label{fig:PBexample}
+\end{figure}
+
 
 \section{Intersection of Lines}
 The point of intersection (abbr. POI) of two lines can be found through solving each line's equation simultaneously.
@@ -418,11 +481,11 @@ The National 5 course most likely focussed on the method of elimination, a bette
 \subsection{Examples}
 \begin{enumerate}
 	\item
-	Two lines have equations 2x-y+11=0 and x+2y-7 = 0. Find the point of intersection.
+	Two lines have equations $2x-y+11=0$ and $x+2y-7 = 0$. Find the point of intersection.
 	
 	\begin{align*}
 		2x-y+11&=0\\
-		y=&2x+11
+		y&=2x+11
 	\end{align*}
 	Sub $y=2x+11$ into $x+2y-7=0$,
 	\begin{align*}
@@ -438,6 +501,36 @@ The National 5 course most likely focussed on the method of elimination, a bette
 		&=-6+11\\
 		&=5
 	\end{align*}
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}[bmark/.style={label={[anchor=center, color=blue]:\pgfuseplotmark{#1}}}]
+			\begin{axis}
+			[
+				xlabel=$x$,
+				ylabel=$y$,
+				xmin=-6,
+				xmax=2,
+				xtick={-6,-5,...,1},
+				ymin=0,
+				ymax=7,
+				ytick={0,1,...,6},
+				axis lines=center,
+				axis equal,
+				smooth,
+				scale=0.8,
+			]
+				\addplot [color=black,mark=none] {2*x+11};
+				\addplot [color=black,mark=none] {3.5-0.5*x};
+				\coordinate
+				[
+					label=right:{$(-3,5)$},
+					bmark=*,
+				] (a) at (-3,5);
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Solution to the first example, point of intersection in blue. Again, it's not required to sketch these two lines, this figure is simply there to give further clarification as to what's happening.}
+		\label{POIexample}
+	\end{figure}
 	
 	\item
 	In triangle $ABC$ with points $A(1,0)$, $B(-4,3)$, $C(0,-1)$, find the median from A, the altitude from C, and henceforth the POI.
