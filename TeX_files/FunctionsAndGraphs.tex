@@ -115,19 +115,19 @@ In figure \ref{fig:verticalShiftExample}, the original graph $y=f(x)$ is drawn, 
 				smooth,
 				scale=0.8
 			]
-			\addplot [] {x^3-3*x-1};
-			\coordinate
-			[
-				label=above left:{$(-1,1)$},
-				black,
-				cmark=*,
-			] (a) at (-1,1);
-			\coordinate
-			[
-				label=below right:{$(1,-3)$},
-				black,
-				cmark=*,
-			] (a) at (1,-3);
+				\addplot [] {x^3-3*x-1};
+				\coordinate
+				[
+					label=above left:{$(-1,1)$},
+					black,
+					cmark=*,
+				] (a) at (-1,1);
+				\coordinate
+				[
+					label=below right:{$(1,-3)$},
+					black,
+					cmark=*,
+				] (a) at (1,-3);
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Some function $y=f(x)$ with a couple of given coordinates.}
@@ -151,20 +151,20 @@ In figure \ref{fig:verticalShiftExample}, the original graph $y=f(x)$ is drawn, 
 				smooth,
 				scale=0.8
 			]
-			\addplot [mark=none] {x^3-3*x-1};
-			\addplot [color=blue,mark=none] {x^3-3*x+2};
-			\coordinate
-			[
-				label=left:{$(-1,4)$},
-				black,
-				cmark=*,
-			] (a) at (-1,4);
-			\coordinate
-			[
-				label=above:{$(1,0)$},
-				black,
-				cmark=*,
-			] (a) at (1,0);
+				\addplot [mark=none] {x^3-3*x-1};
+				\addplot [color=blue,mark=none] {x^3-3*x+2};
+				\coordinate
+				[
+					label=left:{$(-1,4)$},
+					black,
+					cmark=*,
+				] (a) at (-1,4);
+				\coordinate
+				[
+					label=above:{$(1,0)$},
+					black,
+					cmark=*,
+				] (a) at (1,0);
 			\end{axis}
 		\end{tikzpicture}
 		\caption{$y=f(x)+3$ in blue, along with the original graph.}
