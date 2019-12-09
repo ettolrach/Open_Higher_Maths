@@ -7,7 +7,7 @@ Right now the book isn't finished, but once it is you can download it by going t
 ## Using This Book
 You are free to use this book for any purpose. Yes, that means you can photocopy it, and use it in classrooms. It's licensed under CC0, that means it's in the public domain, or in other words, there is no copyright on it.
 
-## Contriburting
+## Contributing
 You are free to create a pull request if you believe that you could improve the book in any way. The biggest reason for me making this book public is to get the best kind of examples possible, by allowing many people to make suggestions the likelihood that the examples will be clearer and more effective is a lot greater.
 
 Please make sure you're following the convention that has been used already, namely:
