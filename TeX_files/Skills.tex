@@ -17,6 +17,156 @@ Rearranged, with our method to find the distances:
 	d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 \end{equation*}
 
+
+\section{Factorisation}
+Factorisation is one of the most important skills that must be known at Higher. Though it's possible to pass National 5 maths with an A without knowing how to factorise, this isn't the case with the Higher course. There are three kinds of factorisation which should be able to be done by hand: looking for the greatest common factor, recognising a difference of two squares, and factorising a quadratic.
+
+Note that when reading resources written in American English, factorising and to factorise is often shortened to simply factoring and to factor (and American spelling changes -ise to -ize in general, so it'll be called "factorizing``).
+
+\subsection{Greatest Common Factor}
+The greatest common factor should have been learnt about in primary school when simplifying fractions. For example, the greatest common factor of $12$ and $18$ is $6$.
+
+When asked to factorise an expression such as $12 + 18$, it should be recognised that the greatest common factor of all terms is $6$. So the expression can be factorised to look like $6(2 + 3)$. This is incredibly useful when dealing with many large terms, such as $126 - 612 + 531$, which can be factorised to become $9(14 - 68 + 59)$.
+
+The strategy for algebraic expressions is the same as with normal numbers: look for the greatest value that everything can be divided by. For example, $3x^5 + 9x^2$. Both coefficients can be divided by 3, the variables can both be divided by $x^2$. Factoring this expression gives $3x^2(x^3+3)$. If unsure, the bracket(s) can always be multiplied out again to double-check.
+
+\subsubsection{Partial Factorisation ("Grouping``)}
+It's possible to only partially factorise and take out a common factor. For example, $4x^2+2y+7x+11$ can be partially factorised to $2(2x^2+y)+7x+11$. This works, as shown below.
+
+\begin{align*}
+	&4x^2+2y+7x+11\\
+	&=\frac{4x^2}{2}+\frac{2y}{2}+\frac{7x}{2}+\frac{11}{2}\\
+	&=2x^2+y+3.5x+5.5\\
+	&=2(2x^2+y+3.5x+5.5)\\
+	&=2(2x^2+y+3.5x)+11\\
+	&=2(2x^2+y)+7x+11\\
+\end{align*}
+
+This is also called factorisation by grouping, as you're essentially grouping a large expression into smaller ones. The above expression can be re-written into two groups like $(4x^2+2y)+(7x+11)$ where it's a bit more obvious that a factor can be taken out. Note that for a final answer any unnecessary brackets must be removed, otherwise marks might not be awarded in an exam.
+
+\subsection{Difference of Two Squares}
+It's very common that expressions end up as the difference of two squares. That name is very literal, $16 - 9$ is a difference of two squares, as it can be re-written as $4^2 - 3^2$.
+
+Any expression in the form $a^2 - b^2$ can be re-written as $(a+b)(a-b)$.
+
+For example, $9x^4-x^2$ can be factorised to give $(3x^2+x)(3x^2-x)$. Note that sometimes you can do this twice, for example, $16x^4-81$ can be factorised to $(4x^2+9)(4x^2-9)$, where the second bracket can be further factorised to give $(4x^2+9)(2x+3)(2x-3)$.
+
+\subsection{Factorising A Quadratic}
+Some quadratics can be factorised, which is essential when trying to solve them. There are usually two different methods that are taught.
+
+\subsubsection{Method 1 — St. Andrew's Cross}
+My friend always called this the St. Andrew's Cross method, even though the table that is built isn't layed out diagonally like the real St. Andrew's Cross is. I liked the name though, which is why I'll call it like so.
+
+A quadratic in the form $ax^2+bx+c$ where $a=1$ can be factorised by looking for factors of $c$, and then checking which of those factors adds to give $b$. Once a suitable pair of factors is found, they are placed in brackets in the form $(x+a)(x+b)$ where $a$ and $b$ are the two factors (which could potentially be negative).
+
+For example, consider $x^2+6x+9$. The factors of $9$ are $1 \cdot 9$, and $3 \cdot 3$, where either both have to be positive or negative. To get $6$, positive $3$ and $3$ have to be added, $1$ and $9$ would give $10$ when added which isn't what is needed. So $x^2+6x+9$ can be factorised to give $(x+3)(x+3)$, which can be simplified to $(x+3)^2$.
+
+The cross part comes when laying this method out. Suppose $x^2-3x-4$. First, the factors of $4$ should be written out in column of a table, and the sum of the pair should be written in the other column, as shown. In practice, after enough repetitiion, this can be done mentally, many people wouldn't write this table out.
+
+\medskip
+
+\begin{tabular}{r | l}
+	Factors of $-4$ & Sums\\
+	\hline
+	$4 \cdot -1$ & $3$\\
+	$-4 \cdot 1$ & $-3$\\
+	$2 \cdot -2$ & $0$\\
+	$-2 \cdot 2$ & $0$\\
+\end{tabular}
+
+From the table, it can be seen that the factors $-4 \cdot 1$ give $-3$, so when $x^2-3x-4$ is factorised, $(x-4)(x+1)$ is received. Note that in practice, the table can be stopped after $-4 \cdot 1$ is written out, since continuing is pointless and the table gives no extra marks.
+
+When $a \neq 1$, it gets a little bit more difficult and is where the second method really shines.
+
+First, check if the whole quadratic can be simplified by taking out a common factor. For example, $6x^2+72x+120$ might look daunting, but can be simplified to $6(x^2+12x+20)$.
+
+If $a$ is a prime number, one of the factors of $c$ has to be multiplied by $a$. This will make the table a lot longer.
+
+Suppose $5x^2+11x-12$. Here, the first factor is multiplied by $a$ and then, after the horizontal line, the second factor is multiplied by $a$; so for the first row, instead of $1 \cdot -12$, $1$ is multiplied by $a$ (in this case $5$) to give $5 \cdot -12$.
+
+\medskip
+
+\begin{tabular}{r | l}
+	Factors & Sums\\
+	\hline
+	$5 \cdot -12$ & $-7$\\
+	$-5 \cdot 12$ & $7$\\
+	$10 \cdot -6$ & $-4$\\
+	$-10 \cdot 6$ & $4$\\
+	$15 \cdot -4$ & $11$\\
+	$-15 \cdot 4$ & $-11$\\
+	\hline
+	$1 \cdot -60$ & $-59$\\
+	$-1 \cdot 60$ & $59$\\
+	$2 \cdot -30$ & $-28$\\
+	$-2 \cdot 30$ & $28$\\
+	$3 \cdot -20$ & $-17$\\
+	$-3 \cdot 20$ & $17$\\
+\end{tabular}
+
+Again, the table can be stopped after $15 \cdot -4$ is found, as that gives the correct sum of $11$, but for demonstration purposes the complete table is shown.
+
+Now that the factors have been found, they have to be placed in such a way so that when multiplied back out it'll give the correct value for $b$. This means that the factor that has been multiplied by $a$ has to be placed in the bracket that doesn't include $a$. So the factorisation of $5x^2+11x-12$ is $(5x-4)(x+3)$ (note that the unmultiplied factor is placed in the bracket!).
+
+When $a$ is not a prime number, all of its factors have to be considered. If $a$ is 4, for example, then the brackets could look like $(4x+a)(x+b)$ or $(2x+a)(2x+b)$. Even more possibilities have to be considered when making a table. A very difficult question might choose a value for $a$ which has many factors, such as $12$.
+
+Suppose $4x^2+8x+3$ had to be factorised. Firstly, it cannot be simplified by taking out a common factor, so all the factors of $c$ (in this case $3$) have to be listed and individually multiplied by $4$ or $2$. In the table, the first factor is multiplied by 4, then the second, then both terms are multiplied by $2$ and $2$. Since it's the same number, this doesn't need to be done twice. Negative numbers can be excluded, as both $b$ and $c$ are positive.
+
+\medskip
+
+\begin{tabular}{r | l}
+	Factors & Sums\\
+	\hline
+	$4 \cdot 3$ & $7$\\
+	\hline
+	$1 \cdot 12$ & $13$\\
+	\hline
+	$2 \cdot 6$ & $8$\\
+\end{tabular}
+
+So finally, $4x^2+8x-3$ can be factorised to give $(2x+3)(2x+1)$.
+
+If $a<0$ (if $a$ is negative), take out a common factor of $-1$. Suppose $-4x^2-8x-3$ had to be factorised.
+
+\begin{align*}
+	&-4x^2-8x-3\\
+	&=-(4x^2+8x+3)\\
+	&=-(2x+3)(2x+1)\text{ This has been factorised above already}\\
+	&=(-2x-3)(2x+1)
+\end{align*}
+
+It is most likly not necessary to remove the negative outside the bracket, but some might prefer the look of this.
+
+\subsubsection{Method 2 — Splitting Up $b$}
+At first, this might seem similar to the St. Andrew's Cross, but the only thing that's similar is that both require a table. This method is good because it doesn't require too many extra steps when $a \neq 1$.
+
+Firstly, two numbers (later referred to as $p$ and $q$) have to be found such that their product is $ac$ and their sum is $b$. Then, re-write the quadratic $ax^2+bx+c$ in the form $ax^2+px+qx+c$. Partially factorise $ax^2+px$ and $qx+c$, and take out a common factor. As in method 1, if $a<0$, take out a common factor of $-1$ first.
+
+For example, suppose $9x^2-3x-2$ had to be factorised. First, find $p$ and $q$ such that their product is $9 \cdot -2$ ($=-18$) and their sum is $-3$.
+
+\medskip
+
+\begin{tabular}{r | l}
+	Factors of -18 & Sums\\
+	\hline
+	$1 \cdot -18$ & $-17$\\
+	$-1 \cdot 18$ & $17$\\
+	$2 \cdot -9$ & $-7$\\
+	$-2 \cdot 9$ & $7$\\
+	$3 \cdot -6$ & $-3$\\
+	$-3 \cdot 6$ & $3$\\
+\end{tabular}
+
+The factors $3 \cdot -6$ give $-3$, so $p=3$ and $q=-6$.
+
+\begin{align*}
+	&9x^2-3x-2\\
+	&=9x^2+3x-6x-2\\
+	&=3x(3x+1)-2(3x+1)\\
+	&=(3x+1)(3x-2)
+\end{align*}
+
+
 \section{Completing the Square}
 Completing the square is turning a quadratic from the form $ax^2 + bx + c$ to the form $p(x + q)^2+r$. There are multiple ways to do this, all of which will use the example quadratic $2x^2-6x+77$.
 
@@ -70,16 +220,19 @@ Since $c$ is actually $77$ it can be deduced that a further $5$ is needed ($77-7
 \end{equation*}
 
 \section{Rationalising the Denominator}
-When a fraction uses an irrational number as its denominator it can be difficult to understand what it's actually quantifying (try to imagine 5 $\sqrt(2)$ pieces of pizza!). Instead, the denominator can be rationalised. This has to be done in the final answer to an exam question, but isn't necessary (and sometimes even unhelpful) to be done mid-question.
+When a fraction uses an irrational number as its denominator it can be difficult to understand what it's actually quantifying (try to imagine 5 $\sqrt{2}$ pieces of pizza!). Instead, the denominator can be rationalised. This has to be done in the final answer to an exam question, but isn't necessary (and sometimes even unhelpful) to be done mid-question.
 
 When the denominator contains a root, the whole fraction should be multiplied by one in the form of this root.
+
 \begin{align*}
 	&\frac{5}{\sqrt{2}}\\
 	&=\frac{5}{\sqrt{2}} \cdot \frac{\sqrt{2}}{\sqrt{2}}\\
 	&=\frac{5\sqrt{2}}{\sqrt{2}\sqrt{2}}\\
 	&=\frac{5\sqrt{2}}{2}
 \end{align*}
+
 And that is all there is to it, simply multiply the fraction by whatever root the denominator has. Here's another example.
+
 \begin{align*}
 	&\frac{300\sqrt{2}}{5\sqrt{40}}\\[5pt]
 	&=\frac{300\sqrt{2}}{5\sqrt{4 \cdot 10}}\\[5pt]
