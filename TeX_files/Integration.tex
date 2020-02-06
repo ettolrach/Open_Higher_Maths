@@ -1,0 +1,232 @@
+\addtocontents{toc}{\setcounter{tocdepth}{2}}
+\chapter{Integration}
+Integration is the opposite to differentiation. While differentiation is finding the tangent to a line, integration is finding the area under this line (usually called ``area under the graph").
+
+\section{What Is Integration?}
+Suppose a car is decelerating. The velocity-time graph of this car is conveniently the equation $v=-\left(t^2\right)+4$ as shown.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+		[
+			restrict y to domain=0:6,
+			restrict x to domain=0:3,
+			xlabel=$t\ (s)$,
+			ylabel=$v\ (m\ s^{-1})$,
+			xmin=0,
+			xmax=3,
+			xtick={0,1,2},
+			ymin=0,
+			ymax=5,
+			ytick={0,1,...,4},
+			axis lines=center,
+			smooth,
+			samples=150
+		]
+			\addplot [color=black,mark=none] {-x^2+4};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{The curve of a car decelerating.}
+	\label{fig:integrationBasicEx1}
+\end{figure}
+
+How can the distance (referred to as ``displacement", symbol $s$) that the car has travelled during this time be found? From a velocity-time graph, the displacement travelled is the area under the graph.
+
+Note how finding the derivative is finding the ``higher" level; for a travelling car it the derivative of the distance over time is the speed, and the derivative of the velocity over time is the acceleration. When integrating, the ``lower" level is found; so the integral of the acceleration becomes the velocity, and the integral of the velocity is the displacement.
+
+One way to find the area under the graph (and therefore the displacement travelled) is to approximate it using a rectangle (blue in figure \ref{fig:integrationBasicEx2}). This will give an okay estimate, but not a very accurate one. The area can be found as shown.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+		restrict y to domain=0:6,
+		restrict x to domain=0:3,
+		xlabel=$t\ (s)$,
+		ylabel=$v\ (m\ s^{-1})$,
+		xmin=0,
+		xmax=3,
+		xtick={0,1,2},
+		extra x ticks={0},
+		ymin=0,
+		ymax=5,
+		ytick={0,1,...,4},
+		extra y ticks={0},
+		axis lines=center,
+		smooth,
+		samples=150
+	]
+		\addplot [color=black,mark=none] {-x^2+4};
+		\addplot [color=blue,mark=none,domain=0:2] {4};
+		\addplot [color=blue,mark=none,domain=0:2] {0};
+		\addplot [color=blue,mark=none] coordinates {(2,0) (2,4)};
+		\addplot [color=blue,mark=none] coordinates {(0,0) (0,4)};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{In blue is an approximation for the area.}
+	\label{fig:integrationBasicEx2}
+\end{figure}
+
+\begin{align*}
+	s&=\text{area under graph}\\
+	s&=\text{length} \cdot \text{height}\\
+	s&=2 \cdot 4\\
+	s&=8 \text{ m}
+\end{align*}
+
+How could the area under the graph be found in an even more accurate way? More rectangles can be drawn as shown in figure \ref{fig:integrationBasicEx3}. Instead of using a time interval of $2$, a smaller interval could be used. For example, suppose that the differences in time are $0.5$ and not $2$ like before. $t=0.5$ is drawn until it touches the graph. The same is done for $t=1.0$, $t=1.5$, and $t=2.0$ to give four rectangles as shown. This is quite a bit more accurate than using just one rectangle.
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+		restrict y to domain=0:6,
+		restrict x to domain=0:3,
+		xlabel=$t\ (s)$,
+		ylabel=$v\ (m\ s^{-1})$,
+		xmin=0,
+		xmax=3,
+		xtick={0,0.5,...,2},
+		extra x ticks={0},
+		ymin=0,
+		ymax=5,
+		ytick={0,0.25,...,4},
+		yticklabels={0,,0.5,,1,,1.5,,2,,2.5,,3,,3.5,,4},
+		extra y ticks={0},
+		axis lines=center,
+		smooth,
+		samples=150
+	]
+		\addplot [color=black,mark=none] {-x^2+4};
+		\addplot [color=blue,mark=none,domain=0.0:0.5] {4};
+		\addplot [color=blue,mark=none,domain=0.5:1.0] {3.75};
+		\addplot [color=blue,mark=none,domain=1.0:1.5] {3};
+		\addplot [color=blue,mark=none,domain=1.5:2.0] {1.75};
+		\addplot [color=blue,mark=none,domain=0.0:2.0] {0};
+		\addplot [color=blue,mark=none] coordinates {(2,0) (2,1.75)};
+		\addplot [color=blue,mark=none] coordinates {(1.5,0) (1.5,3)};
+		\addplot [color=blue,mark=none] coordinates {(1,0) (1,3.75)};
+		\addplot [color=blue,mark=none] coordinates {(0.5,0) (0.5,4)};
+		\addplot [color=blue,mark=none] coordinates {(0,0) (0,4)};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{In blue is a more accurate approximation for the area.}
+	\label{fig:integrationBasicEx3}
+\end{figure}
+
+To figure out the area of figure \ref{fig:integrationBasicEx3}, the area of the four rectangles would be found as shown below.
+
+\begin{align*}
+	s&=\text{area under graph}\\
+	s&=0.5 \cdot 4 + 0.5 \cdot 3.75 + 0.5 \cdot 3 + 0.5 \cdot 1.75\\
+	s&=6.25 \text{ m}
+\end{align*}
+
+By using smaller differences in time, a more accurate value can be gotten. When this difference in time gets smaller, more rectangles need to be added together. It's almost like a bunch of sums. Eventually, the width of those rectangles will be, eventually the width will be so small that it's negligible. So it can be assumed that the area is just its height, as when $A = \text{length} \cdot \text{height}$ and length becomes negligible, area becomes $A = \text{height}$.
+
+In other words, to work out the area under the graph, the heights of all the rectangles can be multiplied by whatever difference in time we chose (the ``width") and added together. However, the difference in time becomes so small that it becomes negligible.
+
+This is written formally as
+\begin{equation*}
+	\int_{0}^{2} -t^2+4 \, dt
+\end{equation*}
+where:
+\begin{itemize}
+	\item the weird S sign is the integral symbol (it looks like an S for sum, since a lot of rectangles are summed together),
+	\item the little $0$ and $2$ show where the start and end-points of the function are (see how in our above examples time only went from $0$ to $2$ seconds), this is called the lower-bound and upper-bound respectively,
+	\item the $-x^2+4$ is whatever formula we chose to have,
+	\item and the $dt$ stands for the difference in time that we eventually let approach to 0. Note leaving out that this and the constant of integration (covered later) are the two most often made mistakes, so definitely check that you've included them at the end of an exam!
+\end{itemize}
+
+More on areas under graphs is explained in a later chapter, focussing on further examples on finding areas under graphs and showing how you can actually use integrals to find the exact area.
+
+\section{Indefinite Integrals}
+Integrals without any lower- or upper-bounds are called indefinite integrals. This is also called doing ``antidifferentiation", as it's essentially the opposite of differentiating.
+
+To integrate, raise the variable's power by $1$ and then divide the variable with its coefficient by the new raised power. In other words,
+\begin{align*}
+	&\int x^n \, dx\\
+	&= \frac{x^{(n+1)}}{n+1}\text{.}
+\end{align*}
+
+\subsection{The Constant of Integration}
+When differentiating an expression such as $f(x) = 2x^2+5$, the $5$ gets lost and all that's left is $f'(x) = 4x$. So when integrating $4x$ all that can be gotten is $\int 4x \, dx = 2x^2$. Notice that $5$ cannot be gotten back out. Therefore any indefinite integral must include the constant of integration, a $+C$.
+
+Why is this not needed for a definite integral? Well, since two different integrals are subtracted, the two $+C$s will cancel, so it can just be left out. Here's an example.
+
+\addtocontents{toc}{\setcounter{tocdepth}{1}}
+\subsection{Examples}
+\begin{enumerate}
+	\item
+	\begin{align*}
+		&\int x^2 \, dx\\
+		&= \frac{x^3}{3} + C
+	\end{align*}
+	
+	\item
+	\begin{align*}
+		&\int 4x^3 \, dx\\
+		&= \frac{4x^4}{4} + C\\
+		&= x^4+C
+	\end{align*}
+	
+	\item
+	\begin{align*}
+		&\int 9 \, dx\\
+		&= 9x + C
+	\end{align*}
+	
+	\item
+	\begin{align*}
+		&\int \left(x^2+x^{-7}\right) \, dx\\
+		&= \frac{x^3}{3} + \frac{x^{-6}}{-6} + C\\
+		&= \frac{x^3}{3} + \frac{1}{-6x^6} + C\\
+		&= \frac{x^3}{3} - \frac{1}{6x^6} + C
+	\end{align*}
+\end{enumerate}
+
+\section{Definite Integrals (Finding Areas Under (or Over) Graphs)}
+When finding the area under a graph between two points, the integral of the graph between the two points can be found. The integral of figure \ref{fig:integralDefiniteEx1} is as shown.
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+		restrict y to domain=0:25,
+		restrict x to domain=0:5,
+		xlabel=$x$,
+		ylabel=$y$,
+		xmin=0,
+		xmax=5.5,
+		xticklabels={,,,$a$,$b$,},
+		extra x ticks={0},
+		ymin=0,
+		ymax=16,
+		yticklabels={,,,,},
+		extra y ticks={0},
+		axis lines=center,
+		smooth,
+		samples=150
+	]
+		\addplot [color=black,mark=none,name path=y] {(x-1)^2};
+		\path [name path = xaxis] (axis cs:2,0) -- (axis cs:3,0);
+		\addplot [pattern=north east lines,pattern color=blue] fill between[of=y and xaxis, soft clip={domain=2:3}];
+		\addplot [color=blue,mark=none,dashed] coordinates {(2,0) (2,1)};
+		\addplot [color=blue,mark=none,dashed] coordinates {(3,0) (3,4)};
+	\end{axis};
+	\end{tikzpicture}
+	\caption{The hatched area is what is to be found.}
+	\label{fig:integralDefiniteEx1}
+\end{figure}
+\begin{equation}
+	\int_{a}^{b} f(x) dx
+\end{equation}
+
+If the antiderivative of $f(x)$ is given the variable $F(x)$, then the fundamental theorem of calculus can be described as shown.
+
+\begin{equation*}
+	\int_{a}^{b} f(x) \, dx = F(b) - F(a)
+\end{equation*}

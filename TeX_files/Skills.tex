@@ -170,12 +170,11 @@ The factors $3 \cdot -6$ give $-3$, so $p=3$ and $q=-6$.
 \section{Completing the Square}
 Completing the square is turning a quadratic from the form $ax^2 + bx + c$ to the form $p(x + q)^2+r$. There are multiple ways to do this, all of which will use the example quadratic $2x^2-6x+77$.
 
-\subsection{Method 1 — Substitution}
 The question will always give the completed square form, that is $p(x - q)^2+r$ (though the variables might be different ones, like $a$, $b$, $c$, or so). This can be expanded, as shown.
 \begin{align*}
 	&p(x+q)^2+r\\
-	&p(x^2+2qx+q^2)+r\\
-	&px^2+2pqx+pq^2+r
+	&=p(x^2+2qx+q^2)+r\\
+	&=px^2+2pqx+pq^2+r
 \end{align*}
 It can be seen that $a$ became $p$, $b$ became $2pq$, and $c$ became $pq^2+r$. From there, a series of equations can be made and solved (practically this is done from left to right as shown).
 \begin{align*}
@@ -191,38 +190,10 @@ Now that $p$, $q$, and $r$ have been found, they can be substituted back into co
 	2x^2-24x+77 = 2(x-6)^2+5
 \end{equation*}
 
-\subsection{Method 2 — Halving the Coefficient $b$}
-When $a=1$, in the form $p(x+q)^2+r$, $q$ will be half of $b$. Using this fact a perfect square can be created. However, this will (almost) always give an incorrect value for $c$; the constant $r$ corrects this issue.
-
-In other words, first, halve $b$ to find $q$. Then multiply the expression out and compare the $c$ that is gotten with the $c$ in the question. Finally, correct the discrepancy.
-
-In $2x^2-24x+77$, the quadratic has to be partially factorised, factoring the first two terms. This must be done so that $a=1$, even if this gives a fractional $b$.
-\begin{align*}
-	&2x^2-24x+77\\
-	&=2(x^2-12x)+77
-\end{align*}
-Next, $b$ is halved.
-\begin{equation*}
-	-12 \div 2 = -6
-\end{equation*}
-Now part of the final square form can be written.
-\begin{equation*}
-	2(x-6)^2
-\end{equation*}
-But this isn't the final solution. It must be multiplied out to see what value for $c$ is received. This will be the square of $b$ multiplied by whatever was factored out.
-\begin{align*}
-	&2(x-6)^2\\
-	&=2x^2-24x+72
-\end{align*}
-Since $c$ is actually $77$ it can be deduced that a further $5$ is needed ($77-72=5$), which gives the final answer.
-\begin{equation*}
-	2x^2 - 24x + 77 = 2(x-6)^2+5
-\end{equation*}
-
 \section{Rationalising the Denominator}
 When a fraction uses an irrational number as its denominator it can be difficult to understand what it's actually quantifying (try to imagine 5 $\sqrt{2}$ pieces of pizza!). Instead, the denominator can be rationalised. This has to be done in the final answer to an exam question, but isn't necessary (and sometimes even unhelpful) to be done mid-question.
 
-When the denominator contains a root, the whole fraction should be multiplied by one in the form of this root.
+When the denominator contains a root, the whole fraction should be multiplied by $1$ in the form of this root.
 
 \begin{align*}
 	&\frac{5}{\sqrt{2}}\\

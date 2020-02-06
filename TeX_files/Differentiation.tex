@@ -69,8 +69,8 @@ Suppose we graph the distance over time of a quick vehicle. For reasons that'll 
 		[
 			restrict y to domain=0:25,
 			restrict x to domain=0:5,
-			xlabel=$t (s)$,
-			ylabel=$d (m)$,
+			xlabel=$t\ (s)$,
+			ylabel=$d\ (m)$,
 			xmin=0,
 			xmax=5,
 			xtick={0,1,...,4},
@@ -207,12 +207,14 @@ Suppose there's a curve $y=(x-1)^2$, as shown in figure \ref{fig:gradientBasicEx
 			xmin=0,
 			xmax=6,
 			xtick={0,1,...,5},
+			extra x ticks={0},
 			ymin=0,
 			ymax=17,
 			ytick={0,2,...,16},
+			extra y ticks={0},
 			axis lines=center,
 			smooth,
-			samples=50
+			samples=150
 		]
 			\addplot [color=black,mark=none] {(x-1)^2};
 		\end{axis}
@@ -278,12 +280,14 @@ Substituting $m=4$ and $(3,4)$ into $y-b=m(x-a)$ gives the equation of the tange
 			xmin=0,
 			xmax=6,
 			xtick={0,1,...,5},
+			extra x ticks={0},
 			ymin=0,
 			ymax=17,
 			ytick={0,2,...,16},
+			extra y ticks={0},
 			axis lines=center,
 			smooth,
-			samples=50
+			samples=150
 		]
 			\addplot [color=black,mark=none] {(x-1)^2};
 			\addplot [color=blue, mark=none] {4*x-8};
@@ -299,7 +303,7 @@ Figure \ref{fig:gradientFinishedExample} shows what the tangent actually looks l
 \section{Examples of Rate of Change \& Tangent of a Curve Questions}
 \label{sec:derivativeExamples}
 \subsection{Rate of Change}
-Find the rate of change of $f(x) = x^-1$ when $x=4$.
+Find the rate of change of $f(x) = x^{-1}$ when $x=4$.
 \begin{align*}
 	f(x) &= x^{-1}\\
 	f'(x) &= -x^{-2}\\
@@ -663,6 +667,8 @@ Stationary points occur when $\frac{dy}{dx} = 0$.
 	&= 10^{36} & &= -10^{36}
 \end{align*}
 As $x \rightarrow \infty$, $y$ stays positive. As $x \rightarrow -\infty$, $y$ stays negative.
+
+A sketched graph is shown in figure \ref{fig:curveSketchingExample}.
 \begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}[bmark/.style={label={[anchor=center, color=blue]:\pgfuseplotmark{#1}}}]
@@ -705,7 +711,7 @@ As $x \rightarrow \infty$, $y$ stays positive. As $x \rightarrow -\infty$, $y$ s
 \end{figure}
 
 \section{Optimisation}
-Finding where a function is at its minimum or at its maximum can be helpful for many real-life situations, for example the stock market. You could look at a prediction of the stock market and draw the following conclusions from here. Consider this idealised stock in figure \ref{fig:simpleStock}. It's best to sell at year 2 Q1, and best to buy at Q3.
+Finding where a function is at its minimum or at its maximum can be helpful for many real-life situations, for example the stock market. You could look at a prediction of the stock market and draw a couple of solutions. Consider this idealised stock in figure \ref{fig:simpleStock}. It's best to sell at year 2 Q1 because the stock is at its highest point, and best to buy at Q3 because the stock is at its lowest point.
 \begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}[bmark/.style={label={[anchor=center, color=blue]:\pgfuseplotmark{#1}}}]
@@ -745,9 +751,9 @@ Finding where a function is at its minimum or at its maximum can be helpful for 
 
 As these ``best times to buy/sell" occur at stationary points, it's easy to find out what they are from an equation.
 
-It's important to also consider the domain, since these are real-life examples. For example, that stock market graph might be continuing into an even lower value, but only that time frame might be of interest. Another example would be a geometric shape. Almost always the result cannot be negative.
+It's important to also consider the domain, since these are real-life examples. For example, that stock market graph could go on for another several months, but maybe only the time frame shown is of interest. Another example would be a geometric shape. A length (such as the radius of a circle) cannot be negative.
 
-Additionally, exam questions will often ask to show how the equation is derived. If you have no idea how to do that, just skip to the optimisation part to get at least a couple marks.
+Additionally, exam questions will often ask to show how the equation is derived. If you have no idea how to do that, the first part can be skipped to at least get the 6 or so marks for the actual optimisation part.
 
 \subsection{Example}
 The volume of a glass display case is 500 $cm^3$. The length of the base is $x$. The case is a bottom-less, square-based rectangular prism.
@@ -760,14 +766,16 @@ The volume of a glass display case is 500 $cm^3$. The length of the base is $x$.
 
 \begin{enumerate}
 	\item
-	The total area is the area on the top added to the area of the four sides combined. Since base is a square and has length $x$, an expression can be written (with variable $h$ for height).
-	\begin{equation*}
-		A(x) = x^2 + 4(hx)
-	\end{equation*}
+	The total area is the area on the top added to the area of the four sides combined. Since the base is a square and has length $x$, an expression can be written (with variable $h$ for height).
+	\begin{align*}
+		A(x) &= \left(\text{area of the top face}\right) \cdot 4\left(\text{area of the side face}\right)\\
+		A(x) &= x^2 + 4(hx)
+	\end{align*}
 	
 	To get rid of $h$, the equation for the volume of a cuboid can be used.
 	\begin{align*}
-		V &= x y z\\
+		V &= length \cdot width \cdot height\\
+		V &= x^2 \cdot h\\
 		500 &= h x^2\\
 		h &= \frac{500}{x^2}
 	\end{align*}
@@ -814,9 +822,9 @@ The volume of a glass display case is 500 $cm^3$. The length of the base is $x$.
 	
 	Work out the height:
 	\begin{align*}
-		h = \frac{500}{x^2}\\
+		h &= \frac{500}{x^2}\\
 		&= \frac{500}{10^2}\\
-		&= 5
+		&= 5\text{ cm}
 	\end{align*}
 	
 	Work out the area:
