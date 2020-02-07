@@ -3,7 +3,7 @@
 Integration is the opposite to differentiation. While differentiation is finding the tangent to a line, integration is finding the area under this line (usually called ``area under the graph").
 
 \section{What Is Integration?}
-Suppose a car is decelerating. The velocity-time graph of this car is conveniently the equation $v=-\left(t^2\right)+4$ as shown.
+Suppose a car is decelerating and the velocity-time graph of this car is conveniently the equation $v=-\left(t^2\right)+4$ as shown.
 
 \begin{figure}[h!]
 	\centering
@@ -147,15 +147,15 @@ More on areas under graphs is explained in a later chapter, focussing on further
 Integrals without any lower- or upper-bounds are called indefinite integrals. This is also called doing ``antidifferentiation", as it's essentially the opposite of differentiating.
 
 To integrate, raise the variable's power by $1$ and then divide the variable with its coefficient by the new raised power. In other words,
-\begin{align*}
+\begin{align}
 	&\int x^n \, dx\\
 	&= \frac{x^{(n+1)}}{n+1}\text{.}
-\end{align*}
+\end{align}
 
 \subsection{The Constant of Integration}
 When differentiating an expression such as $f(x) = 2x^2+5$, the $5$ gets lost and all that's left is $f'(x) = 4x$. So when integrating $4x$ all that can be gotten is $\int 4x \, dx = 2x^2$. Notice that $5$ cannot be gotten back out. Therefore any indefinite integral must include the constant of integration, a $+C$.
 
-Why is this not needed for a definite integral? Well, since two different integrals are subtracted, the two $+C$s will cancel, so it can just be left out. Here's an example.
+Why is this not needed for a definite integral? Well, since two different integrals are subtracted, the two $+C$s will cancel, so it can just be left out.
 
 \addtocontents{toc}{\setcounter{tocdepth}{1}}
 \subsection{Examples}
@@ -213,7 +213,7 @@ When finding the area under a graph between two points, the integral of the grap
 	]
 		\addplot [color=black,mark=none,name path=y] {(x-1)^2};
 		\path [name path = xaxis] (axis cs:2,0) -- (axis cs:3,0);
-		\addplot [pattern=north east lines,pattern color=blue] fill between[of=y and xaxis, soft clip={domain=2:3}];
+		\addplot [pattern=north west lines,pattern color=blue] fill between[of=y and xaxis, soft clip={domain=2:3}];
 		\addplot [color=blue,mark=none,dashed] coordinates {(2,0) (2,1)};
 		\addplot [color=blue,mark=none,dashed] coordinates {(3,0) (3,4)};
 	\end{axis};
@@ -227,6 +227,171 @@ When finding the area under a graph between two points, the integral of the grap
 
 If the antiderivative of $f(x)$ is given the variable $F(x)$, then the fundamental theorem of calculus can be described as shown.
 
-\begin{equation*}
+\begin{equation}
 	\int_{a}^{b} f(x) \, dx = F(b) - F(a)
-\end{equation*}
+\end{equation}
+
+In other words, once the antiderivative is found, substitute $x$ for $a$ and subtract it by the antiderivative with $x$ substituted for $b$.
+
+The notation for subtracting two antiderivatives is shown in the examples below; seeing it is often easier to understand than reading it.
+
+\subsection{Examples}
+\begin{enumerate}
+	\item
+	The graph of the function $y=x^2+2x$ is sketched in figure \ref{fig:integralDefiniteEx2}. Find the area of the shaded part of the graph.
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}[cmark/.style={label={[anchor=center]:\pgfuseplotmark{#1}}}]
+			\begin{axis}
+			[
+				restrict y to domain=-5:25,
+				restrict x to domain=-1:4,
+				xlabel=$x$,
+				ylabel=$y$,
+				xmin=-1,
+				xmax=4.5,
+				xtick={-1,0,...,4},
+				xticklabels={,,1,,3},
+				ymin=-5,
+				ymax=26,
+				ytick={-5,0,...,25},
+				yticklabels={,,,,,,,},
+				axis lines=center,
+				smooth,
+				samples=150
+			]
+				\addplot [color=black,mark=none,name path=y] {x^2+2*x};
+				\path [name path = xaxis] (axis cs:1,0) -- (axis cs:3,0);
+				\addplot [pattern=north west lines,pattern color=blue] fill between[of=y and xaxis, soft clip={domain=1:3}];
+				\addplot [color=blue,mark=none,dashed] coordinates {(1,0) (1,3)};
+				\addplot [color=blue,mark=none,dashed] coordinates {(3,0) (3,15)};
+				\coordinate [label=below right:{$0$},black,cmark=*] (o) at (0,0);
+			\end{axis};
+		\end{tikzpicture}
+		\caption{Graph of $y=x^2+2x$, not to scale.}
+		\label{fig:integralDefiniteEx2}
+	\end{figure}
+	
+	\item
+	Find the positive value of $Z$ for which $\int_{1}^{Z} (1+2x) \, dx = 4$
+\end{enumerate}
+
+\begin{enumerate}
+	\item
+	\begin{align*}
+		&\int_{1}^{3} (x^2 + 2x) \, dx\\
+		&=\left[ \frac{x^3}{3} + \frac{2x^2}{2} \right]_1^3\\
+		&=\left[ \frac{x^3}{3} + x^2 \right]_1^3\\
+		&=\left[ \frac{3^3}{3} + 3^2 \right] - \left[ \frac{1^3}{3} + {1^2} \right]\\
+		&= \left[ 18 \right] - \left[ \frac{4}{3} \right]\\
+		&= \frac{50}{3} \text{ units}^2
+	\end{align*}
+	Note that the units is squared, as an area is found.
+	
+	\item
+	\begin{align*}
+		\int_{1}^{Z} (1+2x) \, dx &= 4\\
+		\left[ x+x^2 \right]_1^Z &= 4\\
+		\left[ Z+Z^2 \right] - \left[ 1+1^2 \right] &= 4\\
+		Z+Z^2 - 2 &= 4\\
+		Z^2+Z - 6 &= 0\\
+		\left(Z+3\right)\left(Z-2\right) &= 0\\
+	\end{align*}
+	\begin{align*}
+		&Z=-3 & Z&=2\\
+		&\text{Disregard, as $Z$ must be positive.} & &
+	\end{align*}
+\end{enumerate}
+
+\section{Working With Negative Area}
+Integrating a graph which goes below the $x$-axis will give a negative area. Is this useful?
+
+Using the car example, the graph goes below the $x$-axis when it goes backwards. If the total displacement is to be found then yes, it's very helpful. But the total distance that the car drove would always be positive.
+
+Generally in maths, when you have to find an area under a graph that goes into the negative then you must change a negative area to a positive one.
+
+\subsection{Examples}
+\begin{enumerate}
+	\item
+	Find the area under the graph of $f(x) = 2x+4$ between $x=-2$ and $x=2$.
+	
+	\item
+	Figure \ref{fig:integralNegativeAreaEx1} shows the graph of $y=8-2x-x^2$. Find the area of the graph between $x=-5$ and $x=2$.
+\end{enumerate}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[cmark/.style={label={[anchor=center]:\pgfuseplotmark{#1}}}]
+		\begin{axis}
+		[
+			restrict y to domain=-7.75:9.5,
+			restrict x to domain=-5.5:9,
+			xlabel=$x$,
+			ylabel=$y$,
+			xmin=-5.5,
+			xmax=2.75,
+			xtick={-5,-4,...,2},
+			xticklabels={,,},
+			ymin=-7.75,
+			ymax=9.75,
+			ytick={-7,-6,...,9},
+			yticklabels={,,},
+			axis lines=center,
+			smooth,
+			samples=75
+		]
+			\addplot [color=black,mark=none,name path=y] {8-2*x-x^2};
+			\path [name path = xaxis] (axis cs:-5,0) -- (axis cs:2,0);
+			\addplot [pattern=north west lines,pattern color=blue] fill between[of=y and xaxis, soft clip={domain=-5:2}];
+			\addplot [color=blue,mark=none,dashed] coordinates {(-5,0) (-5,-7)};
+			\coordinate [label=below right:{$0$},black,cmark=*] (o) at (0,0);
+			\coordinate [label=above:{$-5$},black,cmark=*] (a) at (-5,0);
+			\coordinate [label=below right:{$-4$},black,cmark=*] (b) at (-4,0);
+			\coordinate [label=below left:{$2$},black,cmark=*] (c) at (2,0);
+		\end{axis};
+	\end{tikzpicture}
+	\caption{Graph of $y=8-2x-x^2$, not to scale.}
+	\label{fig:integralNegativeAreaEx1}
+\end{figure}
+
+\begin{enumerate}
+	\item
+	\begin{align*}
+		&\int_{-2}^{2} 2x-4 \, dx\\
+		&=\left[ x^2-4x \right]_{-2}^2\\
+		&=\left[ 2^2-4\left(2\right) \right] - \left[ \left(-2\right)^2-4\left(-2\right) \right]\\
+		&=-4-12\\
+		&=-16 \text{ units}^2
+	\end{align*}
+	As the area must be positive, the area is $16$ units$^2$.
+	
+	\item
+	$A_{\text{total}} = A_{\text{below}} + A_{\text{above}}$
+	\begin{align*}
+		A_{below} &= \int_{-5}^{-4} (8-2x-x^2) dx\\
+		&= \left[ 8x-x^2-\frac{x^3}{3} \right]_{-5}^{-4}\\
+		&= \left[ 8\left(-4\right) - \left(-4\right)^2 - \frac{(-4)^3}{3} \right] - \left[ 8\left(-5\right) - \left(-5\right)^2 - \frac{(-5)^3}{3} \right]\\
+		&= \left[ -32-16 + \frac{64}{3} \right] - \left[ -40-25 + \frac{125}{3} \right]\\
+		&= \left[ -\frac{80}{3} \right] - \left[ -\frac{80}{70}\right]\\
+		&= -\frac{10}{3} \text{ units}^2
+	\end{align*}
+	However, area is positive, so $A_{below} = \frac{10}{3}$ units$^2$.
+	
+	\begin{align*}
+		A_{above} &= \int_{-4}^{2} (8-2x-x^2) dx\\
+		&= \left[ 8x-x^2-\frac{x^3}{3} \right]_{-4}^{2}\\
+		&= \left[ 8\left(2\right) - \left(2\right)^2 - \frac{(2)^3}{3} \right] - \left[ 8\left(-4\right) - \left(-4\right)^2 - \frac{(-4)^3}{3} \right]\\
+		&= \left[ 16-4 - \frac{8}{3} \right] - \left[ -32-16 + \frac{64}{3} \right]\\
+		&= \left[ \frac{28}{3} \right] - \left[ -\frac{80}{3}\right]\\
+		&= \frac{28}{3} + \frac{80}{3}\\
+		&= 36 \text{ units}^2
+	\end{align*}
+	
+	\begin{align*}
+		A_{\text{total}} &= A_{\text{below}} + A_{\text{above}}\\
+		&= \frac{10}{3} + 36\\
+		&= \frac{10+108}{3}\\
+		&= \frac{118}{3}\\
+		&= 39\frac{1}{3} \text{ units}^2
+	\end{align*}
+\end{enumerate}
