@@ -8,10 +8,12 @@
 \usepgfplotslibrary{fillbetween} % For hatched graphs.
 \usetikzlibrary{patterns} % Also for hatched graphs.
 \usepackage{subcaption}
+% This package is used to mark right-angles. In theory I could have used it more, but it wasn't necessary.
 \usepackage{tkz-euclide}
-% This is required by TKZ-Euclid features.
-\usetkzobj{all}
+% For underlines and strike-throughs.
 \usepackage{ulem}
+% For hyperlinks.
+\usepackage{hyperref}
 \setcounter{tocdepth}{1}
 \pgfplotsset{compat=1.16}
 
@@ -25,12 +27,14 @@
 \maketitle
 \tableofcontents
 
+\include{TeX_files/Preface}
+
 \mainmatter
-\include{./TeX_files/StraightLine}
-\include{./TeX_files/FunctionsAndGraphs}
-\include{./TeX_files/Differentiation}
-\include{./TeX_files/Integration}
-\include{./TeX_files/Skills}
+\include{TeX_files/StraightLine}
+\include{TeX_files/FunctionsAndGraphs}
+\include{TeX_files/Differentiation}
+\include{TeX_files/Integration}
+\include{TeX_files/Skills}
 
 \backmatter
 % bibliography, glossary and index would go here.
