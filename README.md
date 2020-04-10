@@ -1,6 +1,9 @@
 # Open Higher Maths
 A free and open-source maths textbook for the [SQA Higher](https://www.sqa.org.uk/sqa/47910.html) course.
 
+# This project is now abandoned.
+Please read the preface for more information. Feel free to fork this repo, it's licensed under CC0. The original description is kept here for archival purposes.
+
 ## Download - How to Get the Book
 Right now the book isn't finished, but once it is you can download it by going to the releases tab. For now, you can compile it using your favourite LaTeX compiler.
 
